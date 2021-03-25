@@ -124,8 +124,8 @@ function buildCharts(sample) {
     var bubbleLayout = {
       title: 'Marker Size',
       showlegend: false,
-      height: 6000,
-      width: 6000      
+      height: 600,
+      width: 600      
     };
     
     // 3. Use Plotly to plot the data with the layout.
