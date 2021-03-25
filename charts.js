@@ -124,7 +124,7 @@ function buildCharts(sample) {
     var bubbleLayout = {
       title: 'Marker Size',
       showlegend: false,
-      height: 600,
+      height: 500,
       width: 600      
     };
     
