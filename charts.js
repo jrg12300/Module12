@@ -116,7 +116,7 @@ function buildCharts(sample) {
 
     // 1. Create the trace for the bubble chart.
     var trace2 = {
-      x:otu_ids_formated , y:sample_values , mode: 'markers',  marker:{size: sample_values}
+      x:otu_ids_formated , y:sample_values , text:otu_labels,mode: 'markers',  marker:{color:otu_ids_formated,size: sample_values}
       }; 
     var bubbleData = [trace2];
     
