@@ -1,0 +1,17 @@
+body {
+
+    color:#4d0606;
+    background-color: #4d0606;
+  }
+
+
+  .jumbotron {
+    color:#b1e418;
+    background-color: #4d0606;
+    background-size: 100% 100%;
+    text-align: center;
+    background-image: url("jumbotron.png");
+    
+  }
+
+  

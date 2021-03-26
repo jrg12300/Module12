@@ -22,7 +22,7 @@ function init() {
 
 // Initialize the dashboard
 init();
-console.log('heyy')
+console.log('heyyy')
 
 function optionChanged(newSample) {
   // Fetch new data each time a new sample is selected
@@ -106,11 +106,11 @@ function buildCharts(sample) {
     // Trace1 for the Bar Graph Data
     var trace1 = { x: xdata, y: ydata,text: lables, name: "Greek", type: "bar", orientation: "h"};
     // data
-    var data = [trace1];
+    var datas = [trace1];
     // Apply the group bar mode to the layout
     var layout = {title: "Sample Bacteria", margin: {l: 100,r: 100,t: 100,b: 100} };
     // 10. Use Plotly to plot the data with the layout. 
-    Plotly.newPlot("bar", data, layout);
+    Plotly.newPlot("bar", datas, layout);
 
 
 
@@ -125,12 +125,54 @@ function buildCharts(sample) {
       title: 'Marker Size',
       showlegend: false,
       height: 500,
-      width: 600      
+      width: 1200     
     };
     
     // 3. Use Plotly to plot the data with the layout.
     Plotly.newPlot('bubble', bubbleData, bubbleLayout);
-    
+   
+
+
+    //deliverable 3
+
+    //get the washing frequency
+    var metadata = data.metadata;
+    var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
+    var result = resultArray[0];
+    //console.log(result);
+    //console.log(Object.keys(result));
+    //log(result['wfreq']);
+
+
+    //var gaugedata = [{
+    //  domain: { x: [0, 1], y: [0, 1] },
+	//	value: result['wfreq'],
+	//	title: { text: "Washing Frequency" },
+	//	type: "indicator",
+//		mode: "gauge+number"
+
+  //  }];
+
+    var gaugedata = [
+  {
+    domain: { x: [0, 1], y: [0, 1] },
+    value: result['wfreq'],
+    title: { text: "WashingFrequency" },
+    type: "indicator",
+    mode: "gauge+number+delta",
+    gauge: {
+      axis: { range: [null, 10] },
+      steps: [
+        { range: [0, 3], color: "red" },
+        { range: [3, 6], color: "yellow" },{ range: [6, 10], color: "white" }
+      ]
+   
+    }
+  }
+];
+
+    var gaugelayout = { width: 600, height: 500, margin: { t: 0, b: 0 } };
+    Plotly.newPlot('gauge', gaugedata, gaugelayout);
 
   });
 }
